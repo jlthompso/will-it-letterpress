@@ -1,88 +1,65 @@
-import {
-  Form,
-  FormError,
-  FieldError,
-  Label,
-  TextField,
-  NumberField,
-  Submit,
-} from '@redwoodjs/forms'
+import LoadingButton from '@mui/lab/LoadingButton'
+import Box from '@mui/material/Box'
+import InputAdornment from '@mui/material/InputAdornment'
+import TextField from '@mui/material/TextField'
+import { useForm } from 'react-hook-form'
+
+import { Form, Submit } from '@redwoodjs/forms'
 
 const FontForm = (props) => {
   const onSubmit = (data) => {
+    console.log(data.name)
+    console.log(data.size)
+    console.log(data.chars)
+    if (data.size) {
+      data.size = parseInt(data.size)
+    } else {
+      delete data.size
+    }
+    console.log(data)
     props.onSave(data, props?.font?.id)
   }
 
+  const formMethods = useForm({ mode: 'onBlur' })
+  const { register } = formMethods
+
   return (
-    <div className="rw-form-wrapper">
-      <Form onSubmit={onSubmit} error={props.error}>
-        <FormError
-          error={props.error}
-          wrapperClassName="rw-form-error-wrapper"
-          titleClassName="rw-form-error-title"
-          listClassName="rw-form-error-list"
-        />
+    <Form
+      autoComplete="off"
+      onSubmit={onSubmit}
+      error={props.error}
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      formMethods={formMethods}
+    >
+      <TextField
+        {...register('name', { required: true })}
+        required
+        label="Name"
+        defaultValue={props.font?.name}
+        placeholder="Comic Sans"
+      />
 
-        <Label
-          name="name"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
+      <TextField
+        {...register('size')}
+        label="Size"
+        defaultValue={props.font?.size}
+        InputProps={{
+          endAdornment: <InputAdornment position="end">pt.</InputAdornment>,
+        }}
+      />
+
+      <Box sx={{ '& > button': { m: 1 } }}>
+        <LoadingButton
+          component={Submit}
+          loading={props.loading}
+          variant="contained"
         >
-          Name
-        </Label>
-
-        <TextField
-          name="name"
-          defaultValue={props.font?.name}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="name" className="rw-field-error" />
-
-        <Label
-          name="size"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Size
-        </Label>
-
-        <NumberField
-          name="size"
-          defaultValue={props.font?.size}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-        />
-
-        <FieldError name="size" className="rw-field-error" />
-
-        <Label
-          name="chars"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Chars
-        </Label>
-
-        <TextField
-          name="chars"
-          defaultValue={props.font?.chars}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="chars" className="rw-field-error" />
-
-        <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Save
-          </Submit>
-        </div>
-      </Form>
-    </div>
+          <span>save</span>
+        </LoadingButton>
+      </Box>
+    </Form>
   )
 }
 

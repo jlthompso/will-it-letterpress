@@ -3,7 +3,7 @@ export const schema = gql`
     id: String!
     name: String!
     size: Int
-    chars: String!
+    chars: String
   }
 
   type Query {
@@ -14,7 +14,7 @@ export const schema = gql`
   input CreateFontInput {
     name: String!
     size: Int
-    chars: String!
+    chars: String
   }
 
   input UpdateFontInput {
