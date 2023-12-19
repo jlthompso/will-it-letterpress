@@ -16,16 +16,25 @@ import CharQtyInput from 'src/components/CharQtyInput/CharQtyInput'
 
 const FontForm = (props) => {
   const onSubmit = (data) => {
-    if (data.size) {
-      data.size = parseInt(data.size)
-    } else {
-      delete data.size
+    const formattedData = { name: data.name }
+    const size = parseInt(data.size)
+    if (!isNaN(size)) {
+      formattedData.size = size
     }
-    props.onSave(data, props?.font?.id)
+    const chars = {}
+    for (const [field, val] of Object.entries(data)) {
+      if (field.startsWith('char-') && !isNaN(val)) {
+        chars[field] = val
+      }
+    }
+    formattedData.chars = JSON.stringify(chars)
+    props.onSave(formattedData, props?.font?.id)
   }
 
   const formMethods = useForm({ mode: 'onBlur' })
   const { register } = formMethods
+
+  const chars = props.font ? JSON.parse(props.font.chars) : null
 
   return (
     <Form
@@ -58,228 +67,717 @@ const FontForm = (props) => {
         <Table sx={{ minWidth: 650 }}>
           <TableBody>
             <TableRow>
-              <CharQtyInput formMethods={formMethods}>ffi</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>fl</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>5/m</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>4/m</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>&apos;</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>k</CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={4} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-ffi'}
+                chars={chars}
+              >
+                ffi
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-fl'}
+                chars={chars}
+              >
+                fl
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-fiveEm'}
+                chars={chars}
+              >
+                5/m
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-fourEm'}
+                chars={chars}
+              >
+                4/m
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-apostrophe'}
+                chars={chars}
+              >
+                &apos;
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-k'}
+                chars={chars}
+              >
+                k
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-e'}
+                chars={chars}
+                rowSpan={4}
+                colSpan={2}
+              >
                 e
               </CharQtyInput>
               <TableCell sx={{ border: 1 }} rowSpan={9}></TableCell>
-              <CharQtyInput formMethods={formMethods}>1</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>2</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>3</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>4</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>5</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>6</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>7</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>8</CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-one'}
+                chars={chars}
+              >
+                1
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-two'}
+                chars={chars}
+              >
+                2
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-three'}
+                chars={chars}
+              >
+                3
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-four'}
+                chars={chars}
+              >
+                4
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-five'}
+                chars={chars}
+              >
+                5
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-six'}
+                chars={chars}
+              >
+                6
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-seven'}
+                chars={chars}
+              >
+                7
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-eight'}
+                chars={chars}
+              >
+                8
+              </CharQtyInput>
               <TableCell sx={{ border: 1 }} rowSpan={9}></TableCell>
-              <CharQtyInput formMethods={formMethods}>$</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>£</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>–</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>Æ</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>Œ</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>æ</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>œ</CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-usd'}
+                chars={chars}
+              >
+                $
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-gbp'}
+                chars={chars}
+              >
+                £
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-dash'}
+                chars={chars}
+              >
+                –
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-AE'}
+                chars={chars}
+              >
+                Æ
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-CE'}
+                chars={chars}
+              >
+                Œ
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-ae'}
+                chars={chars}
+              >
+                æ
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-ce'}
+                chars={chars}
+              >
+                œ
+              </CharQtyInput>
             </TableRow>
             <TableRow>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-j'}
+                chars={chars}
+                rowSpan={2}
+              >
                 j
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-b'}
+                chars={chars}
+                rowSpan={3}
+              >
                 b
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-c'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 c
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-d'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 d
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-i'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 i
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-s'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 s
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-f'}
+                chars={chars}
+                rowSpan={3}
+              >
                 f
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-g'}
+                chars={chars}
+                rowSpan={3}
+              >
                 g
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-ff'}
+                chars={chars}
+                rowSpan={2}
+              >
                 ff
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-nine'}
+                chars={chars}
+                rowSpan={2}
+              >
                 9
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-A'}
+                chars={chars}
+                rowSpan={2}
+              >
                 A
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-B'}
+                chars={chars}
+                rowSpan={2}
+              >
                 B
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-C'}
+                chars={chars}
+                rowSpan={2}
+              >
                 C
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-D'}
+                chars={chars}
+                rowSpan={2}
+              >
                 D
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-E'}
+                chars={chars}
+                rowSpan={2}
+              >
                 E
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-F'}
+                chars={chars}
+                rowSpan={2}
+              >
                 F
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-G'}
+                chars={chars}
+                rowSpan={2}
+              >
                 G
               </CharQtyInput>
             </TableRow>
             <TableRow></TableRow>
             <TableRow>
-              <CharQtyInput formMethods={formMethods}>?</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>fi</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>0</CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-question'}
+                chars={chars}
+              >
+                ?
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-fi'}
+                chars={chars}
+              >
+                fi
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-zero'}
+                chars={chars}
+              >
+                0
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-H'}
+                chars={chars}
+                rowSpan={2}
+              >
                 H
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-I'}
+                chars={chars}
+                rowSpan={2}
+              >
                 I
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-K'}
+                chars={chars}
+                rowSpan={2}
+              >
                 K
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-L'}
+                chars={chars}
+                rowSpan={2}
+              >
                 L
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-M'}
+                chars={chars}
+                rowSpan={2}
+              >
                 M
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-N'}
+                chars={chars}
+                rowSpan={2}
+              >
                 N
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-O'}
+                chars={chars}
+                rowSpan={2}
+              >
                 O
               </CharQtyInput>
             </TableRow>
             <TableRow>
-              <CharQtyInput formMethods={formMethods}>!</CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-exclamation'}
+                chars={chars}
+              >
+                !
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-l'}
+                chars={chars}
+                rowSpan={2}
+              >
                 l
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-m'}
+                chars={chars}
+                rowSpan={2}
+                colSpan={2}
+              >
                 m
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-n'}
+                chars={chars}
+                rowSpan={2}
+                colSpan={2}
+              >
                 n
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-h'}
+                chars={chars}
+                rowSpan={2}
+                colSpan={2}
+              >
                 h
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-o'}
+                chars={chars}
+                rowSpan={2}
+                colSpan={2}
+              >
                 o
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-y'}
+                chars={chars}
+                rowSpan={2}
+              >
                 y
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-p'}
+                chars={chars}
+                rowSpan={2}
+              >
                 p
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-w'}
+                chars={chars}
+                rowSpan={2}
+              >
                 w
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-comma'}
+                chars={chars}
+                rowSpan={2}
+              >
                 ,
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-enQuad'}
+                chars={chars}
+                rowSpan={2}
+              >
                 en quad
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-emQuad'}
+                chars={chars}
+                rowSpan={2}
+              >
                 em quad
               </CharQtyInput>
             </TableRow>
             <TableRow>
-              <CharQtyInput formMethods={formMethods}>z</CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-z'}
+                chars={chars}
+              >
+                z
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-P'}
+                chars={chars}
+                rowSpan={2}
+              >
                 P
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-Q'}
+                chars={chars}
+                rowSpan={2}
+              >
                 Q
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-R'}
+                chars={chars}
+                rowSpan={2}
+              >
                 R
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-S'}
+                chars={chars}
+                rowSpan={2}
+              >
                 S
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-T'}
+                chars={chars}
+                rowSpan={2}
+              >
                 T
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-V'}
+                chars={chars}
+                rowSpan={2}
+              >
                 V
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-W'}
+                chars={chars}
+                rowSpan={2}
+              >
                 W
               </CharQtyInput>
             </TableRow>
             <TableRow>
-              <CharQtyInput formMethods={formMethods}>x</CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-x'}
+                chars={chars}
+              >
+                x
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-v'}
+                chars={chars}
+                rowSpan={3}
+              >
                 v
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-u'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 u
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-t'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 t
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-threeEmSpace'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 3/em spaces
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-a'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 a
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-r'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 r
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>;</CharQtyInput>
-              <CharQtyInput formMethods={formMethods}>:</CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={3} colSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-semicolon'}
+                chars={chars}
+              >
+                ;
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-colon'}
+                chars={chars}
+              >
+                :
+              </CharQtyInput>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-twoAndThreeEmQuads'}
+                chars={chars}
+                rowSpan={3}
+                colSpan={2}
+              >
                 2 & 3-em quads
               </CharQtyInput>
             </TableRow>
             <TableRow>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-q'}
+                chars={chars}
+                rowSpan={2}
+              >
                 q
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-period'}
+                chars={chars}
+                rowSpan={2}
+              >
                 .
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-minus'}
+                chars={chars}
+                rowSpan={2}
+              >
                 -
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-X'}
+                chars={chars}
+                rowSpan={2}
+              >
                 X
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-Y'}
+                chars={chars}
+                rowSpan={2}
+              >
                 Y
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-Z'}
+                chars={chars}
+                rowSpan={2}
+              >
                 Z
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-J'}
+                chars={chars}
+                rowSpan={2}
+              >
                 J
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-uppercase-U'}
+                chars={chars}
+                rowSpan={2}
+              >
                 U
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-ampersand'}
+                chars={chars}
+                rowSpan={2}
+              >
                 &
               </CharQtyInput>
-              <CharQtyInput formMethods={formMethods} rowSpan={2}>
+              <CharQtyInput
+                formMethods={formMethods}
+                name={'char-lowercase-ffl'}
+                chars={chars}
+                rowSpan={2}
+              >
                 ffl
               </CharQtyInput>
             </TableRow>

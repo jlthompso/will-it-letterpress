@@ -14,9 +14,11 @@ const CharQtyInput = (props) => {
     >
       <Tooltip title={props.children}>
         <TextField
-          {...register('ffi')}
+          {...register(props.name, {
+            valueAsNumber: true,
+          })}
           label={props.children}
-          defaultValue={props.font?.chars[props.children]}
+          defaultValue={props.chars ? props.chars[props.name] : ''}
           sx={{ width: props.children.length < 4 ? '4rem' : '8rem' }}
         />
       </Tooltip>
