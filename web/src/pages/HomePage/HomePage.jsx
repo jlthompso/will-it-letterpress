@@ -2,6 +2,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 
 import { Form, Submit } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
@@ -9,9 +10,13 @@ import { MetaTags } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import FontsCell from 'src/components/Font/FontsCell'
+import { setText } from 'src/lib/printJobSlice'
 
 const HomePage = () => {
-  const onSubmit = (data) => {
+  const dispatch = useDispatch()
+
+  const onSubmit = ({ text }) => {
+    dispatch(setText(text))
     navigate(routes.sorts())
   }
 
