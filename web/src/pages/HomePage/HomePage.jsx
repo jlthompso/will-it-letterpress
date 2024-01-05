@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField'
 import { useForm } from 'react-hook-form'
 
 import { Form, Submit } from '@redwoodjs/forms'
+import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -11,7 +12,7 @@ import FontsCell from 'src/components/Font/FontsCell'
 
 const HomePage = () => {
   const onSubmit = (data) => {
-    console.log(data)
+    navigate(routes.sorts())
   }
 
   const onError = (error) => {

@@ -19,6 +19,7 @@ const FontSelect = ({ fonts }) => {
         value={font}
         label="Font"
         onChange={handleChange}
+        required
       >
         {fonts?.map((font) => (
           <MenuItem key={font.id} value={font.id}>
