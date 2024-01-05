@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form'
 import { Form, Submit } from '@redwoodjs/forms'
 
 import CharQtyInput from 'src/components/CharQtyInput/CharQtyInput'
+import charNames from 'src/lib/charNames'
 
 const FontForm = (props) => {
   const onSubmit = (data) => {
@@ -72,42 +73,42 @@ const FontForm = (props) => {
                 name={'char-lowercase-ffi'}
                 chars={chars}
               >
-                ffi
+                {charNames['char-lowercase-ffi']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-lowercase-fl'}
                 chars={chars}
               >
-                fl
+                {charNames['char-lowercase-fl']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-fiveEm'}
                 chars={chars}
               >
-                5/m
+                {charNames['char-fiveEm']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-fourEm'}
                 chars={chars}
               >
-                4/m
+                {charNames['char-fourEm']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-apostrophe'}
                 chars={chars}
               >
-                &apos;
+                {charNames['char-apostrophe']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-lowercase-k'}
                 chars={chars}
               >
-                k
+                {charNames['char-lowercase-k']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -116,7 +117,7 @@ const FontForm = (props) => {
                 rowSpan={4}
                 colSpan={2}
               >
-                e
+                {charNames['char-lowercase-e']}
               </CharQtyInput>
               <TableCell sx={{ border: 1 }} rowSpan={9}></TableCell>
               <CharQtyInput
@@ -124,56 +125,56 @@ const FontForm = (props) => {
                 name={'char-one'}
                 chars={chars}
               >
-                1
+                {charNames['char-one']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-two'}
                 chars={chars}
               >
-                2
+                {charNames['char-two']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-three'}
                 chars={chars}
               >
-                3
+                {charNames['char-three']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-four'}
                 chars={chars}
               >
-                4
+                {charNames['char-four']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-five'}
                 chars={chars}
               >
-                5
+                {charNames['char-five']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-six'}
                 chars={chars}
               >
-                6
+                {charNames['char-six']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-seven'}
                 chars={chars}
               >
-                7
+                {charNames['char-seven']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-eight'}
                 chars={chars}
               >
-                8
+                {charNames['char-eight']}
               </CharQtyInput>
               <TableCell sx={{ border: 1 }} rowSpan={9}></TableCell>
               <CharQtyInput
@@ -181,49 +182,49 @@ const FontForm = (props) => {
                 name={'char-usd'}
                 chars={chars}
               >
-                $
+                {charNames['char-usd']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-gbp'}
                 chars={chars}
               >
-                £
+                {charNames['char-gbp']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-dash'}
                 chars={chars}
               >
-                –
+                {charNames['char-dash']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-uppercase-AE'}
                 chars={chars}
               >
-                Æ
+                {charNames['char-uppercase-AE']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
-                name={'char-uppercase-CE'}
+                name={'char-uppercase-OE'}
                 chars={chars}
               >
-                Œ
+                {charNames['char-uppercase-OE']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-lowercase-ae'}
                 chars={chars}
               >
-                æ
+                {charNames['char-lowercase-ae']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
-                name={'char-lowercase-ce'}
+                name={'char-lowercase-oe'}
                 chars={chars}
               >
-                œ
+                {charNames['char-lowercase-oe']}
               </CharQtyInput>
             </TableRow>
             <TableRow>
@@ -233,7 +234,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                j
+                {charNames['char-lowercase-j']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -241,7 +242,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={3}
               >
-                b
+                {charNames['char-lowercase-b']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -250,7 +251,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                c
+                {charNames['char-lowercase-c']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -259,7 +260,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                d
+                {charNames['char-lowercase-d']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -268,7 +269,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                i
+                {charNames['char-lowercase-i']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -277,7 +278,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                s
+                {charNames['char-lowercase-s']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -285,7 +286,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={3}
               >
-                f
+                {charNames['char-lowercase-f']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -293,7 +294,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={3}
               >
-                g
+                {charNames['char-lowercase-g']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -301,7 +302,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                ff
+                {charNames['char-lowercase-ff']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -309,7 +310,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                9
+                {charNames['char-nine']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -317,7 +318,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                A
+                {charNames['char-uppercase-A']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -325,7 +326,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                B
+                {charNames['char-uppercase-B']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -333,7 +334,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                C
+                {charNames['char-uppercase-C']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -341,7 +342,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                D
+                {charNames['char-uppercase-D']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -349,7 +350,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                E
+                {charNames['char-uppercase-E']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -357,7 +358,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                F
+                {charNames['char-uppercase-F']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -365,7 +366,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                G
+                {charNames['char-uppercase-G']}
               </CharQtyInput>
             </TableRow>
             <TableRow></TableRow>
@@ -375,21 +376,21 @@ const FontForm = (props) => {
                 name={'char-question'}
                 chars={chars}
               >
-                ?
+                {charNames['char-question']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-lowercase-fi'}
                 chars={chars}
               >
-                fi
+                {charNames['char-lowercase-fi']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-zero'}
                 chars={chars}
               >
-                0
+                {charNames['char-zero']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -397,7 +398,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                H
+                {charNames['char-uppercase-H']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -405,7 +406,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                I
+                {charNames['char-uppercase-I']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -413,7 +414,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                K
+                {charNames['char-uppercase-K']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -421,7 +422,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                L
+                {charNames['char-uppercase-L']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -429,7 +430,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                M
+                {charNames['char-uppercase-M']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -437,7 +438,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                N
+                {charNames['char-uppercase-N']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -445,7 +446,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                O
+                {charNames['char-uppercase-O']}
               </CharQtyInput>
             </TableRow>
             <TableRow>
@@ -454,7 +455,7 @@ const FontForm = (props) => {
                 name={'char-exclamation'}
                 chars={chars}
               >
-                !
+                {charNames['char-exclamation']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -462,7 +463,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                l
+                {charNames['char-lowercase-l']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -471,7 +472,7 @@ const FontForm = (props) => {
                 rowSpan={2}
                 colSpan={2}
               >
-                m
+                {charNames['char-lowercase-m']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -480,7 +481,7 @@ const FontForm = (props) => {
                 rowSpan={2}
                 colSpan={2}
               >
-                n
+                {charNames['char-lowercase-n']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -489,7 +490,7 @@ const FontForm = (props) => {
                 rowSpan={2}
                 colSpan={2}
               >
-                h
+                {charNames['char-lowercase-h']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -498,7 +499,7 @@ const FontForm = (props) => {
                 rowSpan={2}
                 colSpan={2}
               >
-                o
+                {charNames['char-lowercase-o']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -506,7 +507,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                y
+                {charNames['char-lowercase-y']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -514,7 +515,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                p
+                {charNames['char-lowercase-p']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -522,7 +523,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                w
+                {charNames['char-lowercase-w']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -530,7 +531,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                ,
+                {charNames['char-comma']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -538,7 +539,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                en quad
+                {charNames['char-enQuad']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -546,7 +547,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                em quad
+                {charNames['char-emQuad']}
               </CharQtyInput>
             </TableRow>
             <TableRow>
@@ -555,7 +556,7 @@ const FontForm = (props) => {
                 name={'char-lowercase-z'}
                 chars={chars}
               >
-                z
+                {charNames['char-lowercase-z']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -563,7 +564,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                P
+                {charNames['char-uppercase-P']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -571,7 +572,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                Q
+                {charNames['char-uppercase-Q']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -579,7 +580,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                R
+                {charNames['char-uppercase-R']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -587,7 +588,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                S
+                {charNames['char-uppercase-S']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -595,7 +596,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                T
+                {charNames['char-uppercase-T']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -603,7 +604,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                V
+                {charNames['char-uppercase-V']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -611,7 +612,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                W
+                {charNames['char-uppercase-W']}
               </CharQtyInput>
             </TableRow>
             <TableRow>
@@ -620,7 +621,7 @@ const FontForm = (props) => {
                 name={'char-lowercase-x'}
                 chars={chars}
               >
-                x
+                {charNames['char-lowercase-x']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -628,7 +629,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={3}
               >
-                v
+                {charNames['char-lowercase-v']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -637,7 +638,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                u
+                {charNames['char-lowercase-u']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -646,7 +647,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                t
+                {charNames['char-lowercase-t']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -655,7 +656,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                3/em spaces
+                {charNames['char-threeEmSpace']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -664,7 +665,7 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                a
+                {charNames['char-lowercase-a']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -673,30 +674,30 @@ const FontForm = (props) => {
                 rowSpan={3}
                 colSpan={2}
               >
-                r
+                {charNames['char-lowercase-r']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-semicolon'}
                 chars={chars}
               >
-                ;
+                {charNames['char-semicolon']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
                 name={'char-colon'}
                 chars={chars}
               >
-                :
+                {charNames['char-colon']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
-                name={'char-twoAndThreeEmQuads'}
+                name={'char-twoAndThreeEmQuad'}
                 chars={chars}
                 rowSpan={3}
                 colSpan={2}
               >
-                2 & 3-em quads
+                {charNames['char-twoAndThreeEmQuad']}
               </CharQtyInput>
             </TableRow>
             <TableRow>
@@ -706,7 +707,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                q
+                {charNames['char-lowercase-q']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -714,7 +715,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                .
+                {charNames['char-period']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -722,7 +723,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                -
+                {charNames['char-minus']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -730,7 +731,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                X
+                {charNames['char-uppercase-X']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -738,7 +739,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                Y
+                {charNames['char-uppercase-Y']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -746,7 +747,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                Z
+                {charNames['char-uppercase-Z']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -754,7 +755,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                J
+                {charNames['char-uppercase-J']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -762,7 +763,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                U
+                {charNames['char-uppercase-U']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -770,7 +771,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                &
+                {charNames['char-ampersand']}
               </CharQtyInput>
               <CharQtyInput
                 formMethods={formMethods}
@@ -778,7 +779,7 @@ const FontForm = (props) => {
                 chars={chars}
                 rowSpan={2}
               >
-                ffl
+                {charNames['char-lowercase-ffl']}
               </CharQtyInput>
             </TableRow>
           </TableBody>
