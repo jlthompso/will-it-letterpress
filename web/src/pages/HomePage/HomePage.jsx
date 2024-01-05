@@ -7,7 +7,7 @@ import { Form, Submit } from '@redwoodjs/forms'
 import { MetaTags } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import FontSelectCell from 'src/components/FontSelectCell'
+import FontsCell from 'src/components/Font/FontsCell'
 
 const HomePage = () => {
   const onSubmit = (data) => {
@@ -32,7 +32,7 @@ const HomePage = () => {
           error={onError}
           formMethods={formMethods}
         >
-          <FontSelectCell />
+          <FontsCell dropdown />
 
           <TextField
             {...register('text', { required: true })}

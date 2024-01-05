@@ -1,6 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 
 import Fonts from 'src/components/Font/Fonts'
+import FontSelect from 'src/components/FontSelect/FontSelect'
 
 export const QUERY = gql`
   query FindFonts {
@@ -30,6 +31,6 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error?.message}</div>
 )
 
-export const Success = ({ fonts }) => {
-  return <Fonts fonts={fonts} />
+export const Success = ({ fonts, dropdown }) => {
+  return dropdown ? <FontSelect fonts={fonts} /> : <Fonts fonts={fonts} />
 }
