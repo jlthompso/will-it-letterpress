@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 
 import { Metadata } from '@redwoodjs/web'
 
+import ShortageChart from 'src/components/ShortageChart'
 import charNames from 'src/lib/charNames'
 
 const SortsPage = () => {
@@ -57,6 +58,8 @@ const SortsPage = () => {
           )}
         </tbody>
       </table>
+
+      <ShortageChart />
     </>
   )
 }
