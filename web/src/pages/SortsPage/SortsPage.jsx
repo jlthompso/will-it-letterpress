@@ -38,28 +38,7 @@ const SortsPage = () => {
     <>
       <Metadata title="Sorts" description="Sorts page" />
 
-      <table>
-        <thead>
-          <tr>
-            <th>Character</th>
-            <th>Required Qty.</th>
-            <th>Available Qty.</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(chars).map(
-            ([charName, { char, available, required }]) => (
-              <tr key={charName}>
-                <td>{char}</td>
-                <td>{required}</td>
-                <td>{available}</td>
-              </tr>
-            )
-          )}
-        </tbody>
-      </table>
-
-      <ShortageChart />
+      <ShortageChart dataset={Object.values(chars)} />
     </>
   )
 }

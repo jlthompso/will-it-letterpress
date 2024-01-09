@@ -1,16 +1,37 @@
-import { LineChart } from '@mui/x-charts/LineChart'
+import { BarChart } from '@mui/x-charts/BarChart'
 
-const ShortageChart = () => {
+const ShortageChart = ({ dataset }) => {
+  const chartSetting = {
+    xAxis: [
+      {
+        label: 'type quantity',
+      },
+    ],
+    width: 500,
+    height: 300,
+    margin: { left: 100 },
+  }
+
   return (
-    <LineChart
-      xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+    <BarChart
+      dataset={dataset.sort((a, b) => b.required - a.required)}
+      yAxis={[{ scaleType: 'band', dataKey: 'char' }]}
       series={[
         {
-          data: [2, 5.5, 2, 8.5, 1.5, 5],
+          dataKey: 'required',
+          label: 'Required Qty.',
+          stack: 'A',
+          color: 'lightblue',
+        },
+        {
+          dataKey: 'available',
+          label: 'Available Qty.',
+          stack: 'A',
+          color: 'lightgreen',
         },
       ]}
-      width={500}
-      height={300}
+      {...chartSetting}
+      layout="horizontal"
     />
   )
 }
