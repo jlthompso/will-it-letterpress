@@ -7,21 +7,29 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Set, Router, Route } from '@redwoodjs/router'
+import { PrivateSet, Set, Router, Route } from '@redwoodjs/router'
 
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
 
+import { useAuth } from './auth'
+
 const Routes = () => {
   return (
-    <Router>
+    <Router useAuth={useAuth}>
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Route path="/sorts" page={SortsPage} name="sorts" />
-      <Route path="/" page={HomePage} name="home" />
-      <Set wrap={ScaffoldLayout} title="Fonts" titleTo="fonts" buttonLabel="New Font" buttonTo="newFont">
-        <Route path="/fonts/new" page={FontNewFontPage} name="newFont" />
-        <Route path="/fonts/{id}/edit" page={FontEditFontPage} name="editFont" />
-        <Route path="/fonts/{id}" page={FontFontPage} name="font" />
-        <Route path="/fonts" page={FontFontsPage} name="fonts" />
-      </Set>
+      <PrivateSet unauthenticated="login">
+        <Route path="/" page={HomePage} name="home" />
+        <Set wrap={ScaffoldLayout} title="Fonts" titleTo="fonts" buttonLabel="New Font" buttonTo="newFont">
+          <Route path="/fonts/new" page={FontNewFontPage} name="newFont" />
+          <Route path="/fonts/{id}/edit" page={FontEditFontPage} name="editFont" />
+          <Route path="/fonts/{id}" page={FontFontPage} name="font" />
+          <Route path="/fonts" page={FontFontsPage} name="fonts" />
+        </Set>
+      </PrivateSet>
       <Route notfound page={NotFoundPage} />
     </Router>
   )

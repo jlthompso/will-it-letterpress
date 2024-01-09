@@ -1,3 +1,5 @@
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import { useSelector } from 'react-redux'
 
 import { Metadata } from '@redwoodjs/web'
@@ -38,7 +40,14 @@ const SortsPage = () => {
     <>
       <Metadata title="Sorts" description="Sorts page" />
 
-      <ShortageChart dataset={Object.values(chars)} />
+      <Box width="50%">
+        <Typography variant="h5" gutterBottom>
+          {Object.values(chars).find((char) => char.available < char.required)
+            ? 'Insufficient type to print text.'
+            : 'Text can be printed!'}
+        </Typography>
+        <ShortageChart dataset={Object.values(chars)} />
+      </Box>
     </>
   )
 }

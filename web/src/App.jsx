@@ -8,6 +8,9 @@ import store from 'src/lib/store'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
 
+import './scaffold.css'
+import { AuthProvider, useAuth } from './auth'
+
 import './index.css'
 
 import '@fontsource/roboto/300.css'
@@ -24,11 +27,13 @@ if (process.env.NODE_ENV !== 'production') {
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <RedwoodApolloProvider>
-        <Provider store={store}>
-          <Routes />
-        </Provider>
-      </RedwoodApolloProvider>
+      <AuthProvider>
+        <RedwoodApolloProvider useAuth={useAuth}>
+          <Provider store={store}>
+            <Routes />
+          </Provider>
+        </RedwoodApolloProvider>
+      </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )
