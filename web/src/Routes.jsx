@@ -9,6 +9,7 @@
 
 import { PrivateSet, Set, Router, Route } from '@redwoodjs/router'
 
+import AppLayout from 'src/layouts/AppLayout'
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
 
 import { useAuth } from './auth'
@@ -20,9 +21,9 @@ const Routes = () => {
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
-      <Route path="/sorts" page={SortsPage} name="sorts" />
-      <PrivateSet unauthenticated="login">
+      <PrivateSet wrap={AppLayout} unauthenticated="login">
         <Route path="/" page={HomePage} name="home" />
+        <Route path="/sorts" page={SortsPage} name="sorts" />
         <Set wrap={ScaffoldLayout} title="Fonts" titleTo="fonts" buttonLabel="New Font" buttonTo="newFont">
           <Route path="/fonts/new" page={FontNewFontPage} name="newFont" />
           <Route path="/fonts/{id}/edit" page={FontEditFontPage} name="editFont" />
