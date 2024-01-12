@@ -2,20 +2,36 @@ import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 
-const ProfileButton = () => {
+import { navigate, routes } from '@redwoodjs/router'
+
+const ProfileButton = ({ logout }) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
   }
-  const handleClose = () => {
+  const handleClose = (event) => {
     setAnchorEl(null)
+    switch (event.currentTarget.firstChild.textContent) {
+      case 'Home':
+        navigate(routes.home())
+        break
+      case 'My Fonts':
+        navigate(routes.fonts())
+        break
+      case 'Logout':
+        logout()
+        break
+      default:
+        break
+    }
   }
 
   return (
     <div>
       <Button
-        id="basic-button"
+        id="dashboard-button"
+        variant="outlined"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
@@ -24,16 +40,16 @@ const ProfileButton = () => {
         Dashboard
       </Button>
       <Menu
-        id="basic-menu"
+        id="dashboard-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          'aria-labelledby': 'dashboard-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Home</MenuItem>
+        <MenuItem onClick={handleClose}>My Fonts</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </div>
