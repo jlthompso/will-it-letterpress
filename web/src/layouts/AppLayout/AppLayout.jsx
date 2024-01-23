@@ -20,7 +20,7 @@ const AppLayout = ({ children }) => {
       >
         <ProfileButton logout={logOut} />
         <Typography variant="body1">
-          {isAuthenticated ? currentUser.email : ''}
+          {isAuthenticated ? currentUser?.email : ''}
         </Typography>
       </Box>
       {children}

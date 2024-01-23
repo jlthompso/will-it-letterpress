@@ -1,3 +1,13 @@
+import Button from '@mui/material/Button'
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -36,53 +46,57 @@ const FontsList = ({ fonts }) => {
 
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Size</th>
-            <th>Chars</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {fonts.map((font) => (
-            <tr key={font.id}>
-              <td>{truncate(font.id)}</td>
-              <td>{truncate(font.name)}</td>
-              <td>{truncate(font.size)}</td>
-              <td>{truncate(font.chars)}</td>
-              <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.font({ id: font.id })}
-                    title={'Show font ' + font.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
-                  <Link
-                    to={routes.editFont({ id: font.id })}
-                    title={'Edit font ' + font.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    type="button"
-                    title={'Delete font ' + font.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(font.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Size</TableCell>
+              <TableCell>Type Count</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {fonts.map((font) => (
+              <TableRow
+                key={font.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell>{truncate(font.name)}</TableCell>
+                <TableCell>{truncate(font.size)}</TableCell>
+                <TableCell>
+                  {Object.values(JSON.parse(font.chars)).reduce(
+                    (sum, val) => sum + val,
+                    0
+                  )}
+                </TableCell>
+                <TableCell>
+                  <Stack direction="row" spacing={2}>
+                    <Button
+                      href={routes.font({ id: font.id })}
+                      title={'Show font ' + font.id + ' detail'}
+                    >
+                      Show
+                    </Button>
+                    <Button
+                      href={routes.editFont({ id: font.id })}
+                      title={'Edit font ' + font.id}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      href={routes.font({ id: font.id })}
+                      title={'Delete font ' + font.id}
+                      onClick={() => onDeleteClick(font.id)}
+                    >
+                      Delete
+                    </Button>
+                  </Stack>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   )
 }

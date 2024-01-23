@@ -1,4 +1,6 @@
-import { Link, routes } from '@redwoodjs/router'
+import Button from '@mui/material/Button'
+
+import { Link, routes, navigate } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 
 const ScaffoldLayout = ({
@@ -17,9 +19,12 @@ const ScaffoldLayout = ({
             {title}
           </Link>
         </h1>
-        <Link to={routes[buttonTo]()} className="rw-button rw-button-green">
-          <div className="rw-button-icon">+</div> {buttonLabel}
-        </Link>
+        <Button
+          variant="contained"
+          onClick={() => navigate(routes[buttonTo]())}
+        >
+          + {buttonLabel}
+        </Button>
       </header>
       <main className="rw-main">{children}</main>
     </div>
