@@ -27,7 +27,6 @@ const Routes = () => {
         <Set wrap={ScaffoldLayout} title="Fonts" titleTo="fonts" buttonLabel="New Font" buttonTo="newFont">
           <Route path="/fonts/new" page={FontNewFontPage} name="newFont" />
           <Route path="/fonts/{id}/edit" page={FontEditFontPage} name="editFont" />
-          <Route path="/fonts/{id}" page={FontFontPage} name="font" />
           <Route path="/fonts" page={FontFontsPage} name="fonts" />
         </Set>
       </PrivateSet>
