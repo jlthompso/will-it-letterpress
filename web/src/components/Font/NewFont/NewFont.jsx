@@ -27,16 +27,7 @@ const NewFont = () => {
     createFont({ variables: { input } })
   }
 
-  return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Font</h2>
-      </header>
-      <div className="rw-segment-main">
-        <FontForm onSave={onSave} loading={loading} error={error} />
-      </div>
-    </div>
-  )
+  return <FontForm onSave={onSave} loading={loading} error={error} />
 }
 
 export default NewFont

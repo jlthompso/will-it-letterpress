@@ -2,6 +2,7 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import Box from '@mui/material/Box'
 import InputAdornment from '@mui/material/InputAdornment'
 import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -47,22 +48,34 @@ const FontForm = (props) => {
       }}
       formMethods={formMethods}
     >
-      <TextField
-        {...register('name', { required: true })}
-        required
-        label="Name"
-        defaultValue={props.font?.name}
-        placeholder="Comic Sans"
-      />
+      <Stack direction="row" spacing={2} margin={'1em'}>
+        <TextField
+          {...register('name', { required: true })}
+          required
+          label="Name"
+          defaultValue={props.font?.name}
+          placeholder="Comic Sans"
+        />
 
-      <TextField
-        {...register('size')}
-        label="Size"
-        defaultValue={props.font?.size}
-        InputProps={{
-          endAdornment: <InputAdornment position="end">pt.</InputAdornment>,
-        }}
-      />
+        <TextField
+          {...register('size')}
+          label="Size"
+          defaultValue={props.font?.size}
+          InputProps={{
+            endAdornment: <InputAdornment position="end">pt.</InputAdornment>,
+          }}
+        />
+
+        <Box sx={{ '& > button': { m: 1 } }}>
+          <LoadingButton
+            component={Submit}
+            loading={props.loading}
+            variant="contained"
+          >
+            <span>save</span>
+          </LoadingButton>
+        </Box>
+      </Stack>
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }}>
@@ -785,16 +798,6 @@ const FontForm = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-
-      <Box sx={{ '& > button': { m: 1 } }}>
-        <LoadingButton
-          component={Submit}
-          loading={props.loading}
-          variant="contained"
-        >
-          <span>save</span>
-        </LoadingButton>
-      </Box>
     </Form>
   )
 }

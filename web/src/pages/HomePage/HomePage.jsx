@@ -31,7 +31,7 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
-      <Box width={'50%'}>
+      <Box maxWidth={'50%'}>
         <Form
           autoComplete="off"
           onSubmit={onSubmit}
@@ -48,6 +48,7 @@ const HomePage = () => {
             placeholder="Lorem ipsum dolor sit amet..."
             minRows={10}
             fullWidth
+            margin="normal"
           />
 
           <Box sx={{ '& > button': { m: 1 } }}>
