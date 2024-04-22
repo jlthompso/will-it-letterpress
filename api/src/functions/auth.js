@@ -164,7 +164,7 @@ export const handler = async (event, context) => {
 
         // If you need to allow other domains (besides the api side) access to
         // the dbAuth session cookie:
-        // Domain: 'example.com',
+        Domain: 'willitletterpress.com',
       },
       name: cookieName,
     },
