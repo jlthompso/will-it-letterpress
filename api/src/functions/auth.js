@@ -170,7 +170,7 @@ export const handler = async (event, context) => {
     },
 
     cors: {
-      origin: 'https://willitletterpress.com',
+      origin: 'https://www.willitletterpress.com',
       credentials: true,
     },
 
