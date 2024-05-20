@@ -159,7 +159,7 @@ export const handler = async (event, context) => {
       attributes: {
         HttpOnly: true,
         Path: '/',
-        SameSite: 'Strict',
+        SameSite: 'Lax',
         Secure: process.env.NODE_ENV !== 'development',
 
         // If you need to allow other domains (besides the api side) access to
@@ -167,11 +167,6 @@ export const handler = async (event, context) => {
         // Domain: 'example.com',
       },
       name: cookieName,
-    },
-
-    cors: {
-      origin: 'https://www.willitletterpress.com',
-      credentials: true,
     },
 
     forgotPassword: forgotPasswordOptions,
