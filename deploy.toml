@@ -23,7 +23,7 @@ path = "/var/www/app"
 processNames = ["api"]
 repo = "git@github.com:jlthompso/will-it-letterpress.git"
 branch = "main"
-keepReleases = 3
+keepReleases = 0
 privateKeyPath = "C:/Users/jthompson7/.ssh/aws-jthompso@mtu.edu.pem"
 
 # If you have separate api and web servers:
