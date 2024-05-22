@@ -14,17 +14,17 @@
 # See https://redwoodjs.com/docs/deploy/baremetal for more info
 
 [[production.servers]]
-host = "ec2-54-152-77-181.compute-1.amazonaws.com"
-username = "ec2-user"
+host = "${HOST}"
+username = "${USERNAME}"
 sides = ["api","web"]
 packageManagerCommand = "yarn"
 monitorCommand = "pm2"
 path = "/var/www/app"
 processNames = ["api"]
-repo = "git@github.com:jlthompso/will-it-letterpress.git"
-branch = "main"
+repo = "${REPO}"
+branch = "${BRANCH}"
 keepReleases = 1
-privateKeyPath = "C:/Users/jthompson7/.ssh/aws-jthompso@mtu.edu.pem"
+privateKeyPath = "${PRIVATE_KEY_PATH}"
 
 # If you have separate api and web servers:
 #
